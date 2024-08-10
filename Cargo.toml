@@ -1,0 +1,16 @@
+[package]
+name = "pretense"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.7.5"
+eyre = "0.6.12"
+futures = "0.3.30"
+metrics = "0.23.0"
+metrics-exporter-prometheus = { version = "0.15.3", default-features = false, features = [
+    "http-listener",
+] }
+tokio = { version = "1.39.2", features = ["net", "rt"] }
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter", "json"] }
