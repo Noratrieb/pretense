@@ -86,7 +86,7 @@ async fn listen_port(port: u16) -> Result<()> {
 
     loop {
         let (conn, addr) = listener.accept().await.wrap_err("failed to accept port")?;
-        tracing::info!(remote_ip = ?addr.ip(), remote_port = ?addr.port(), "Received connection");
+        tracing::info!(remote_ip = ?addr.ip(), remote_port = ?addr.port(), ?port, "Received connection");
         counter.increment(1);
         drop(conn);
     }
