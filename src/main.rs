@@ -80,7 +80,7 @@ async fn listen_port(port: u16) -> Result<()> {
         .wrap_err("listening on port")?;
 
     let labels = [("port", port.to_string())];
-    let counter = metrics::counter!("pretense_connection", &labels);
+    let counter = metrics::counter!("pretense_connection_count", &labels);
 
     tracing::info!(addr=?local_addr, "Listening on port");
 
